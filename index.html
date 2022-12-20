@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css" media="all">
+</head>
+
+<body>
+
+    <main id="p5js">
+        <h1>3Dのjindoggがチラチラ出てくる p5.js</h1>
+        <div id="myCanvas"></div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
+    <script>
+        // 画像読み込み
+        let model_1 = null ;
+
+        function preload() {
+            model_1 = loadImage('./public/img/3Djindogg.png'); //画像の読み込み
+        }
+
+        /// 初期設定
+        function setup() {
+            let canvas = createCanvas(800, 800);
+            canvas.parent('myCanvas');
+
+            background(230);
+
+        }
+
+        // 描画
+        function draw() {
+            
+            background(240,240,240,5);
+            rotate(random(-180,180));
+            if((frameCount % 5) == 0){
+                image(model_1, random(-1 * width, width),random(-1 * height, height), random(30,140) * 2,random(30,140)  * 2);
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>
